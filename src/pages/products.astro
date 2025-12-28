@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="产品方案｜XX电脑科技">
+
+  <section class="page-title">
+    <h1>产品与解决方案</h1>
+    <p>覆盖个人用户与企业客户的电脑及周边产品</p>
+  </section>
+
+  <section class="product-grid">
+    <div class="product-card">
+      <h3>🖥 电脑整机</h3>
+      <p>品牌台式机、笔记本、定制办公电脑</p>
+    </div>
+
+    <div class="product-card">
+      <h3>🧩 电脑配件</h3>
+      <p>显示器、内存、硬盘、路由器、打印设备</p>
+    </div>
+
+    <div class="product-card">
+      <h3>🏢 企业办公方案</h3>
+      <p>批量部署、设备选型、IT 统一管理</p>
+    </div>
+
+    <div class="product-card">
+      <h3>🔐 网络与安全</h3>
+      <p>路由、防火墙、交换机、网络规划</p>
+    </div>
+  </section>
+
+  <style>
+    .page-title {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .page-title h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    .page-title p {
+      color: #64748b;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .product-card {
+      padding: 32px;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,.05);
+      transition: all .25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.08);
+    }
+
+    .product-card h3 {
+      margin-bottom: 12px;
+    }
+  </style>
+
+</Layout>
