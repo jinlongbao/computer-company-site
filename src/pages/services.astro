@@ -1,71 +1,118 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageCTA from "../components/PageCTA.astro";
 ---
 
-<Layout title="技术服务｜XX电脑科技">
-
-  <section class="page-title">
-    <h1>技术服务</h1>
-    <p>为企业与个人用户提供稳定、专业的 IT 技术支持</p>
-  </section>
-
-  <section class="service-grid">
-    <div class="service-card">
-      <h3>🛠 系统安装与维护</h3>
-      <p>Windows / Linux 系统安装、优化、故障排查</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🌐 网络部署与维护</h3>
-      <p>企业网络规划、布线、路由与交换设备配置</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🏢 企业 IT 外包</h3>
-      <p>日常运维、设备管理、技术支持一站式服务</p>
-    </div>
-
-    <div class="service-card">
-      <h3>🧑‍💻 上门 / 远程支持</h3>
-      <p>快速响应，支持上门与远程技术服务</p>
+<Layout>
+  <section class="hero">
+    <div class="inner">
+      <h1>技术服务</h1>
+      <p>为企业提供持续、稳定、可靠的 IT 技术支持</p>
     </div>
   </section>
 
-  <style>
-    .page-title {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .page-title h1 {
-      font-size: 36px;
-      margin-bottom: 12px;
-    }
-    .page-title p {
-      color: #64748b;
-    }
+  <!-- 服务内容 -->
+  <section class="section">
+    <div class="container">
+      <h2>服务内容</h2>
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
-    }
+      <div class="grid">
+        <div class="card">
+          <h3>企业 IT 运维</h3>
+          <p>日常维护、故障排查、系统巡检，保障业务稳定运行</p>
+        </div>
 
-    .service-card {
-      padding: 32px;
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,.05);
-      transition: all .25s ease;
-    }
+        <div class="card">
+          <h3>网络与系统部署</h3>
+          <p>办公网络、服务器、基础系统规划与实施</p>
+        </div>
 
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,.08);
-    }
+        <div class="card">
+          <h3>技术支持与外包</h3>
+          <p>按需服务，降低企业 IT 人力成本</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    .service-card h3 {
-      margin-bottom: 12px;
-    }
-  </style>
-
+  <!-- 服务流程 -->
+  <section class="section alt">
+    <div class="container">
+      <h2>服务流程</h2>
+      <div class="steps">
+        <div>需求沟通</div>
+        <div>方案制定</div>
+        <div>实施部署</div>
+        <div>持续支持</div>
+      </div>
+    </div>
+  </section>
+  <PageCTA />
 </Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(
+      180deg,
+      #1e40af 0%,
+      #1d4ed8 40%,
+      #1e3a8a 100%
+    );
+    color: #fff;
+    padding: 4.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section {
+    padding: 4rem 1.5rem;
+    background: #ffffff;
+  }
+
+  .alt {
+    background: #f8fafc;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+    color: #1e40af;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .card p {
+    color: #475569;
+  }
+
+  .steps {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .steps div {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem 2rem;
+    border-radius: 999px;
+  }
+</style>

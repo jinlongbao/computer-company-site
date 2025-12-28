@@ -1,8 +1,63 @@
-<section style="padding:80px 20px;text-align:center;">
-  <h1>电脑及周边 · 销售与技术服务一体化</h1>
-  <p>整机销售 · 配件升级 · 装机维修 · 企业 IT 支持</p>
-  <p>
-    <a href="#contact">📞 在线咨询</a>　
-    <a href="#services">🔧 预约到店</a>
-  </p>
-</section>
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<section class="hero">
+    <h1>电脑及周边产品 · 企业 IT 技术服务</h1>
+    <p>
+      专注电脑整机、配件销售，为企业与个人提供稳定、高效的技术支持解决方案
+    </p>
+    <a href="/services" class="btn">咨询技术服务</a>
+  </section>
+<style>
+    :root {
+    --blue: #2563eb;
+    --blue-dark: #1e40af;
+    --gray: #475569;
+    --bg-light: #f8fafc;
+    }
+
+    /* Banner */
+    .hero {
+        padding: 120px 24px;
+        text-align: center;
+        background: linear-gradient(
+            135deg,
+            #1e3a8a,
+            #2563eb
+        );
+        color: #fff;
+    }
+    .hero h1 {
+        font-size: clamp(32px, 5vw, 48px);
+        margin-bottom: 20px;
+        color: #fff;
+    }
+    .hero p {
+        font-size: 18px;
+        max-width: 720px;
+        margin: 0 auto 40px;
+        opacity: 0.9;
+    }
+
+    /* 按钮 */
+    .btn {
+        display: inline-block;
+        padding: 14px 36px;
+        background: #fff;
+        color: var(--blue-dark);
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all .2s ease;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0,0,0,.15);
+    }
+    .btn.light {
+        background: transparent;
+        color: var(--blue);
+        border: 2px solid var(--blue);
+    }
+</style>

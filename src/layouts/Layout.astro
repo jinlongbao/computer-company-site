@@ -1,84 +1,167 @@
 ---
-const { title } = Astro.props;
+const { title = "溧阳宏伊电脑科技" } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <title>{title}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="电脑及周边产品销售、企业IT服务、网络维护与技术支持" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<body>
-  <!-- 顶部导航 -->
-  <header class="header">
-    <div class="logo">XX电脑科技</div>
-    <nav>
-      <a href="/">首页</a>
-      <a href="/products">产品方案</a>
-      <a href="/services">技术服务</a>
-      <a href="/about">关于我们</a>
-    </nav>
-  </header>
+    <title>{title}</title>
 
-  <!-- 页面内容 -->
-  <main class="main">
-    <slot />
-  </main>
+    <!-- 全局样式 -->
+    <link rel="stylesheet" href="/src/assets/global.css" />
 
-  <!-- 页脚 -->
-  <footer class="footer">
-    © 2025 XX电脑科技 · 电脑及周边零售与技术服务
-  </footer>
+    <meta
+      name="description"
+      content="溧阳宏伊电脑科技专注电脑及周边产品销售与企业 IT 技术服务，提供稳定可靠的信息化解决方案。"
+    />
+  </head>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
-      color: #333;
-    }
-	.header {
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 16px 32px;
-	background: rgba(255, 255, 255, 0.85);
-	backdrop-filter: blur(10px);
-	border-bottom: 1px solid rgba(0,0,0,.05);
-	}
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="nav">
+        <a href="/" class="logo">溧阳宏伊电脑科技</a>
 
-	.logo {
-	font-weight: 700;
-	font-size: 18px;
-	}
+        <!-- 桌面导航 -->
+        <nav class="menu desktop">
+          <a href="/">首页</a>
+          <a href="/products">产品方案</a>
+          <a href="/services">技术服务</a>
+          <a href="/about">关于我们</a>
+        </nav>
 
-	nav a {
-	margin-left: 24px;
-	text-decoration: none;
-	color: #334155;
-	font-weight: 500;
-	position: relative;
-	}
+        <!-- 移动端按钮 -->
+        <button class="toggle" id="menuToggle" aria-label="打开菜单">
+          ☰
+        </button>
+      </div>
 
-	nav a::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: -6px;
-	width: 0;
-	height: 2px;
-	background: #2563eb;
-	transition: width .2s ease;
-	}
+      <!-- 移动端菜单 -->
+      <nav class="menu mobile" id="mobileMenu">
+        <a href="/">首页</a>
+        <a href="/products">产品方案</a>
+        <a href="/services">技术服务</a>
+        <a href="/about">关于我们</a>
+      </nav>
+    </header>
 
-	nav a:hover::after {
-	width: 100%;
-	}
-  </style>
-</body>
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      © 2025 溧阳宏伊电脑科技
+    </footer>
+
+    <!-- 移动端菜单脚本 -->
+    <script>
+      const toggle = document.getElementById("menuToggle");
+      const menu = document.getElementById("mobileMenu");
+
+      toggle?.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        document.body.style.overflow = menu.classList.contains("open")
+          ? "hidden"
+          : "";
+      });
+
+      menu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+      });
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        color: #0f172a;
+      }
+
+      /* Header */
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #ffffff;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-weight: 600;
+        color: #1e40af;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .menu a {
+        margin-left: 1.5rem;
+        color: #334155;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+
+      /* Toggle */
+      .toggle {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Mobile menu */
+      .menu.mobile {
+        display: none;
+        flex-direction: column;
+        background: #ffffff;
+        border-top: 1px solid #e5e7eb;
+      }
+
+      .menu.mobile a {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .menu.mobile.open {
+        display: flex;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #64748b;
+        background: #f8fafc;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .desktop {
+          display: none;
+        }
+
+        .toggle {
+          display: block;
+        }
+      }
+    </style>
+  </body>
 </html>

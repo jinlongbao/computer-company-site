@@ -2,46 +2,117 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="关于我们｜XX电脑科技">
-  <h1>关于我们</h1>
+<Layout>
+  <section class="hero">
+    <div class="inner">
+      <h1>关于我们</h1>
+      <p>专注电脑及周边产品与企业 IT 技术服务</p>
+    </div>
+  </section>
 
-  <p>
-    XX电脑科技是一家专注于电脑及周边零售、
-    企业IT服务与技术支持的专业团队。
-  </p>
+  <section class="section">
+    <div class="container">
+      <h2>公司简介</h2>
+      <p>
+        溧阳宏伊电脑科技致力于为企业与个人客户提供专业的电脑整机、
+        周边设备以及 IT 技术服务解决方案。
+        我们以稳定、实用、高性价比为核心，为客户构建可靠的信息化环境。
+      </p>
+    </div>
+  </section>
 
-  <p>
-    服务对象涵盖个人用户、中小企业与商用客户。
-  </p>
+  <section class="section alt">
+    <div class="container grid">
+      <div>
+        <h2>我们的服务</h2>
+        <ul>
+          <li>办公电脑与周边设备销售</li>
+          <li>企业 IT 运维与技术支持</li>
+          <li>网络与系统部署</li>
+          <li>电脑维修与故障处理</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>我们的理念</h2>
+        <ul>
+          <li>以客户需求为导向</li>
+          <li>提供稳定可靠的解决方案</li>
+          <li>长期合作，持续服务</li>
+          <li>透明沟通，合理报价</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>
-<hr />
-
-<section class="contact">
-  <h2>联系我们</h2>
-
-  <ul>
-    <li>📞 电话：138-xxxx-xxxx</li>
-    <li>📧 邮箱：service@xxcomputer.com</li>
-    <li>💬 微信：XXXXXX</li>
-    <li>📍 地址：XX市 XX区 XX路</li>
-  </ul>
-</section>
 
 <style>
-  .contact {
-    margin-top: 64px;
-    padding: 32px;
+  .hero {
+    background: linear-gradient(
+      180deg,
+      #1e40af 0%,
+      #1d4ed8 40%,
+      #1e3a8a 100%
+    );
+    color: #fff;
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .section {
+    padding: 4rem 1.5rem;
+    background: #ffffff;
+  }
+
+  .alt {
     background: #f8fafc;
-    border-radius: 16px;
   }
-  .contact h2 {
-    margin-bottom: 16px;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  .contact ul {
-    list-style: none;
-    padding: 0;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: #1e40af;
   }
-  .contact li {
-    margin: 8px 0;
+
+  p {
+    font-size: 18px;
+    max-width: 720px;
+    margin: 0 auto 40px;
+    opacity: 0.9;
+    }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    color: #475569;
+  }
+
+  li {
+    margin-bottom: 0.6rem;
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 2rem;
+    }
   }
 </style>
